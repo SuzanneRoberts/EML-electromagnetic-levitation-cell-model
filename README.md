@@ -7,5 +7,9 @@ A full description of the physics modelled and how it is implemented in the code
 
 <ul>
   <li>Ensure Python3 and the NumPy, SciPy, and Matplotlib modules for Python3 are installed on the system  </li>
-  
+  <pre class="line-numbers">
+    <code class="language-bash">
+      sudo apt install python3-numpy
+    </code>
+  </pre>
 </ul>
