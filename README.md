@@ -10,6 +10,25 @@ A full description of the physics modelled and how it is implemented in the code
   <pre class="line-numbers">
     <code class="language-bash">
       sudo apt install python3-numpy
+      python3 -c "import numpy; print(numpy.__version__)"
+     
+      sudo apt install python3-scipy
+      python3 -c "import scipy; print(scipy.__version__)"
+      
+      sudo apt install python3-matplotlib
+      python3 -c "import matplotlib; print(matplotlib.__version__)"
+    </code>
+  </pre>
+  <li>Give the emlc.py file execute permission </li>
+  <pre class="line-numbers">
+    <code class="language-bash">
+      chmod +x emlc.py
+    </code>
+  </pre>
+  <li>Run emlc.py with python </li>
+  <pre class="line-numbers">
+    <code class="language-bash">
+      python3 ./emlc.py
     </code>
   </pre>
 </ul>
