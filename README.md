@@ -25,7 +25,7 @@ A full description of the physics modelled and how it is implemented in the code
       chmod +x emlc.py
     <!--</code>-->
   </pre>
-  <li>Run emlc.py with python </li>
+  <li>Run emlc.py with python3 </li>
   <pre class="line-numbers">
     <!--<code class="language-bash">-->
       python3 ./emlc.py
