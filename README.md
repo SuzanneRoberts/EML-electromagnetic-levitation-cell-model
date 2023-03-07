@@ -10,10 +10,12 @@ A full description of the physics modelled and how it is implemented in the code
   <pre>
       sudo apt install python3-numpy
       python3 -c "import numpy; print(numpy.__version__)"
-     
+  </pre>
+  <pre>  
       sudo apt install python3-scipy
       python3 -c "import scipy; print(scipy.__version__)"
-      
+  </pre>
+  <pre>    
       sudo apt install python3-matplotlib
       python3 -c "import matplotlib; print(matplotlib.__version__)"
   </pre>
