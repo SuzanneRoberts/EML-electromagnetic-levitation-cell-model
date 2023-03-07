@@ -19,14 +19,14 @@ A full description of the physics modelled and how it is implemented in the code
   </pre>
   <li>Give the emlc.py file execute permission </li>
   <pre class="line-numbers">
-    <!--<code class="language-bash">-->
+    <code class="language-shell">
       chmod +x emlc.py
-    <!--</code>-->
+    </code>
   </pre>
   <li>Run emlc.py with python3 </li>
   <pre class="line-numbers">
-    <!--<code class="language-bash">-->
+    <code class="language-shell">
       python3 ./emlc.py
-    <!--</code>-->
+    </code>
   </pre>
 </ul>
