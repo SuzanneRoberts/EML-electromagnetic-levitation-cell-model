@@ -8,7 +8,6 @@ A full description of the physics modelled and how it is implemented in the code
 <ul>
   <li>Ensure Python3 and the NumPy, SciPy, and Matplotlib modules for Python3 are installed on the system  </li>
   <pre class="line-numbers">
-    <code class="language-shell"> 
       sudo apt install python3-numpy
       python3 -c "import numpy; print(numpy.__version__)"
      
@@ -17,7 +16,6 @@ A full description of the physics modelled and how it is implemented in the code
       
       sudo apt install python3-matplotlib
       python3 -c "import matplotlib; print(matplotlib.__version__)"
-    </code>
   </pre>
   <li>Give the emlc.py file execute permission </li>
   <pre class="line-numbers">
