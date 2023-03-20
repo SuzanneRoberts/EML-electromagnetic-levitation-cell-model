@@ -295,7 +295,7 @@ pl.ion # turns interactive mode in pylab on - prevents figures from vanishing in
 # emlcSim(dd.sz, dd.Fe, dd.Ar, 20, 20, 20, 1, 0.0, 0.0)
 
 # switches
-valWithFjF    = 0
+#valWithFjF    = 1
 plotWithFjF   = 0
 plotWithSzF   = 0
 plotWithMoF   = 0
@@ -739,6 +739,7 @@ if compareRoyerTemp == True:
 
 #if valWithFjF == True:
 
+valWithFjF.valWithFjF()
     
     
 if plotWithFjF == True:
