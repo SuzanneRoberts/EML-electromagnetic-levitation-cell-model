@@ -19,6 +19,7 @@ import scipy.optimize as op
 import sys
 sys.path.append("investigations")
 import valWithFjF
+#import levPos
 
 
 # Set up matplotlib setting to format figures by setting mpl.rcParams, 
@@ -655,6 +656,8 @@ if labGeoVarCurrent == True:
 
 
 if levPos == True:
+#levPos.levPos()
+#def levPos():
     Layers   = 15
     Sections = 15
     Slices   = 15
