@@ -19,6 +19,10 @@ import scipy.optimize as op
 import sys
 sys.path.append("investigations")
 import valWithFjF
+import plotWithFjF
+import plotWithSzF
+import plotWithMoF
+import plotWithKeF
 #import levPos
 
 
@@ -297,10 +301,10 @@ pl.ion # turns interactive mode in pylab on - prevents figures from vanishing in
 
 # switches
 #valWithFjF    = 1
-plotWithFjF   = 0
-plotWithSzF   = 0
-plotWithMoF   = 0
-plotWithKeF   = 0
+#plotWithFjF   = 0
+#plotWithSzF   = 0
+#plotWithMoF   = 0
+#plotWithKeF   = 0
 plotRootsFigs = 0
 plotSymmGeo   = 0
 
@@ -740,131 +744,16 @@ if compareRoyerTemp == True:
 #    pl.show()
 
 
-#if valWithFjF == True:
+#valWithFjF.valWithFjF() 
 
-valWithFjF.valWithFjF()
-    
-    
-if plotWithFjF == True:
-    
-    Layers   = 20
-    Sections = 20
-    Slices   = 20
-    nForce   = 25
-    minForce = -0.045
-    maxForce =  0.03
-    
-    baseValue = 1.256637061435917e-006 #1.256637061435917e-006
-    percentChangeS = 10
-    percentChangeL = 15
-
-
-    dd.Cu.mu0 = (1 + percentChangeL/100)*baseValue
-
-    thePosVec10, theForceVec10, Jcomp, powerVec = emlcSim(dd.fj, dd.Cu, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
-    dd.Cu.R = 0.006
-    thePosVec12, theForceVec12, Jcomp, powerVec = emlcSim(dd.fj, dd.Cu, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
-    dd.Cu.R = 0.0075
-    thePosVec15, theForceVec15, Jcomp, powerVec = emlcSim(dd.fj, dd.Cu, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
-    dd.Cu.R = 0.010
-    thePosVec20, theForceVec20, Jcomp, powerVec = emlcSim(dd.fj, dd.Cu, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
-    
-    pld.plotWithFrommJehnCaseForce(thePosVec10, theForceVec10, thePosVec12, theForceVec12, thePosVec15, theForceVec15, thePosVec20, theForceVec20)
-     
-    
-    dd.Cu.mu0 = baseValue
-    
-    thePosVec10, theForceVec10, Jcomp, powerVec = emlcSim(dd.fj, dd.Cu, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
-    dd.Cu.R = 0.006
-    thePosVec12, theForceVec12, Jcomp, powerVec = emlcSim(dd.fj, dd.Cu, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
-    dd.Cu.R = 0.0075
-    thePosVec15, theForceVec15, Jcomp, powerVec = emlcSim(dd.fj, dd.Cu, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
-    dd.Cu.R = 0.010
-    thePosVec20, theForceVec20, Jcomp, powerVec = emlcSim(dd.fj, dd.Cu, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
-    
-    pld.plotWithFrommJehnCaseForce(thePosVec10, theForceVec10, thePosVec12, theForceVec12, thePosVec15, theForceVec15, thePosVec20, theForceVec20)
-
-
-    pl.figure()   
-    
-    pl.show()
-    
-
-if plotWithSzF == True:
-    
-    Layers   = 20
-    Sections = 20
-    Slices   = 20
-    nForce   = 25
-    minForce = -0.005
-    maxForce =  0.005
-    
-    dd.sz.I = 300
-    dd.sz.Ivec = (dd.sz.loops[:,4]*dd.sz.I) + (np.abs(dd.sz.loops[:,4]-1)*(-dd.sz.I))
-    thePosVec300, theForceVec300, Jcomp, powerVec300 = emlcSim(dd.sz, dd.Fe, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
-    dd.sz.I = 250
-    dd.sz.Ivec = (dd.sz.loops[:,4]*dd.sz.I) + (np.abs(dd.sz.loops[:,4]-1)*(-dd.sz.I))
-    thePosVec250, theForceVec250, Jcomp, powerVec250 = emlcSim(dd.sz, dd.Fe, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
-    dd.sz.I = 200
-    dd.sz.Ivec = (dd.sz.loops[:,4]*dd.sz.I) + (np.abs(dd.sz.loops[:,4]-1)*(-dd.sz.I))
-    thePosVec200, theForceVec200, Jcomp, powerVec200 = emlcSim(dd.sz, dd.Fe, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
-
-    pl.figure()
-    pld.plotWithElKaddahSzekelyCaseForce(thePosVec200, theForceVec200, thePosVec250, theForceVec250, thePosVec300, theForceVec300)
-    
-    pl.figure()
-    pl.plot(thePosVec200, powerVec200)
-    pl.plot(thePosVec250, powerVec250)
-    pl.plot(thePosVec300, powerVec300)
-    pl.xlabel('Sample position along the centerline of the coil (the symmetry plane of the symmetrical coil is at zero) [m]')
-    pl.ylabel('Power absorbed by the sample [W]')
-    pl.legend(['I = 200','I = 250','I = 300'], loc = 'upper center')
-    
-    pl.show()
-
-
-if plotWithMoF == True:
-    
-    Layers   = 20
-    Sections = 20
-    Slices   = 20
-    nForce   = 25
-    minForce = -0.0
-    maxForce =  0.017
-    
-    thePosVec, theForceVec, Jcomp, powerVec = emlcSim(dd.mo, dd.Ni, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
+#plotWithFjF.plotWithFjF()
         
-    pld.plotWithMoghimiCaseForce(thePosVec, theForceVec)
-    
-    pl.show()
-    
-    
+#plotWithSzF.plotWithSzF()
 
-if plotWithKeF == True:
-    
-    Layers   = 20
-    Sections = 20
-    Slices   = 20
-    nForce   = 25
-    minForce = -0.045
-    maxForce =  0.030
-    
-    thePosVec, theForceVec, Jcomp, powerVec = emlcSim(dd.ke, dd.Zn, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
+#plotWithMoF.plotWithMoF()
 
-    
-    pl.figure(101)
+plotWithKeF.plotWithKeF() 
 
-    znVolume  = (4/3)*np.pi*dd.Zn.R**3.0
-    znMass    = dd.Zn.rho * znVolume
-    znWeight  = znMass*9.81
-   
-    pld.plotWithKermanpurCaseForce(thePosVec, (np.array(theForceVec) - znWeight))
-    
-    pld.plotWithKermanpurCaseForce(thePosVec, (np.array(theForceVec) - znWeight)/35)
-    pl.legend(['Fromm & Jehn model (current implementation), \n Force divided by 35','Kermanpur et al. model reported results','Kermanpur et al. reported data points'], loc='lower right', fontsize = 22)
-    
-    pl.show()
-    
     
 if plotRootsFigs == True:
     
