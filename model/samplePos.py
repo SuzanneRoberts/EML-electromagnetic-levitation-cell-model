@@ -7,10 +7,10 @@ Created on Wed Sep  9 16:45:30 2015
 
 import numpy as np, time
 
-from model import coilsRprime as cr
-from model.solveCurrent import solveCurrent
-from model.Jcart import Jconvert2cart
-from model.magneticField import magFieldCalc
+import coilsRprime as cr
+from solveCurrent import solveCurrent
+from Jcart import Jconvert2cart
+from magneticField import magFieldCalc
 
 def samplePos(aSamplePos, nodes, layers, sections, slices, coil, sample, sourceSample, rPrimeSample, MAGrPRIMEsample, UNITrPRIMEsample, verts):
     

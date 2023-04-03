@@ -5,9 +5,9 @@ Created on Wed Aug 26 16:06:10 2015
 @author: Suzanne
 """
 import numpy as np, pylab as pl, unittest
-from model import mutualInduc as mi
-from model import discSample as ds
-from model import defineDesign as dd # only to define coils and samples for unittests
+import mutualInduc as mi
+import discSample as ds
+import defineDesign as dd # only to define coils and samples for unittests
 
 # Function to solve for the induced current distribution in the sample
 def solveCurrent(nodes1, coil, sample):
