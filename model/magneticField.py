@@ -4,7 +4,9 @@ Created on Thu Aug 27 12:14:57 2015
 
 @author: Suzanne
 """
-import numpy as np, mutualInduc as mi, time
+import numpy as np, time
+
+from model import mutualInduc as mi
 
 def selfAddsZero(aVector):
     nanVec             = np.isnan(aVector)

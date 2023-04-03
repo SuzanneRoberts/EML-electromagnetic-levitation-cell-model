@@ -1,7 +1,10 @@
-import defineDesign as dd
+#import sys
+#sys.path.append('model')
+
+from model import defineDesign as dd
 import pylab as pl   
-from emlcSim import emlcSim
-import plotLitData as pld
+from model.emlcSim import emlcSim
+from model import plotLitData as pld
 
 
 def plotWithFjF():
@@ -42,8 +45,12 @@ def plotWithFjF():
     thePosVec20, theForceVec20, Jcomp, powerVec = emlcSim(dd.fj, dd.Cu, dd.Ar, Layers, Sections, Slices, nForce, minForce, maxForce)
     
     pld.plotWithFrommJehnCaseForce(thePosVec10, theForceVec10, thePosVec12, theForceVec12, thePosVec15, theForceVec15, thePosVec20, theForceVec20)
-
+    
 
     pl.figure()   
     
     pl.show()
+    
+    
+    
+plotWithFjF()

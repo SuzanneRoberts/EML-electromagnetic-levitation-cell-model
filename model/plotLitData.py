@@ -60,10 +60,10 @@ def plotWithKermanpurCaseForce(modelPosVec, modelForceVec):
     
 def plotWithFrommJehnCaseForce(modelPosVec10, modelForceVec10, modelPosVec12, modelForceVec12, modelPosVec15, modelForceVec15, modelPosVec20, modelForceVec20):
     # load Fromm & Jehn's experimental data from the text file
-    fj10cmDynes = np.loadtxt('FrommJehnExperimentalData/FrommJehnFig4-10mmDiam.txt')
-    fj12cmDynes = np.loadtxt('FrommJehnExperimentalData/FrommJehnFig4-12mmDiam.txt')
-    fj15cmDynes = np.loadtxt('FrommJehnExperimentalData/FrommJehnFig4-15mmDiam.txt')
-    fj20cmDynes = np.loadtxt('FrommJehnExperimentalData/FrommJehnFig4-20mmDiam.txt')
+    fj10cmDynes = np.loadtxt('model/FrommJehnExperimentalData/FrommJehnFig4-10mmDiam.txt')
+    fj12cmDynes = np.loadtxt('model/FrommJehnExperimentalData/FrommJehnFig4-12mmDiam.txt')
+    fj15cmDynes = np.loadtxt('model/FrommJehnExperimentalData/FrommJehnFig4-15mmDiam.txt')
+    fj20cmDynes = np.loadtxt('model/FrommJehnExperimentalData/FrommJehnFig4-20mmDiam.txt')
     
     
     fj10 = np.zeros(np.shape(fj10cmDynes))
@@ -111,10 +111,10 @@ def plotWithFrommJehnCaseForce(modelPosVec10, modelForceVec10, modelPosVec12, mo
     
 def plotWithFrommJehnCaseForce0(modelPosVec10, modelForceVec10, modelPosVec12, modelForceVec12, modelPosVec15, modelForceVec15, modelPosVec20, modelForceVec20):
     # load Fromm & Jehn's experimental data from the text file
-    fj10cmDynes = np.loadtxt('FrommJehnExperimentalData/FrommJehnFig4-10mmDiam.txt')
-    fj12cmDynes = np.loadtxt('FrommJehnExperimentalData/FrommJehnFig4-12mmDiam.txt')
-    fj15cmDynes = np.loadtxt('FrommJehnExperimentalData/FrommJehnFig4-15mmDiam.txt')
-    fj20cmDynes = np.loadtxt('FrommJehnExperimentalData/FrommJehnFig4-20mmDiam.txt')
+    fj10cmDynes = np.loadtxt('model/FrommJehnExperimentalData/FrommJehnFig4-10mmDiam.txt')
+    fj12cmDynes = np.loadtxt('model/FrommJehnExperimentalData/FrommJehnFig4-12mmDiam.txt')
+    fj15cmDynes = np.loadtxt('model/FrommJehnExperimentalData/FrommJehnFig4-15mmDiam.txt')
+    fj20cmDynes = np.loadtxt('model/FrommJehnExperimentalData/FrommJehnFig4-20mmDiam.txt')
     
     
     fj10 = np.zeros(np.shape(fj10cmDynes))

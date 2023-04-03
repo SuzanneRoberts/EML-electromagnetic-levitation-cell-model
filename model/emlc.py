@@ -16,13 +16,15 @@ from samplePos import samplePos
 from emlcSim import emlcSim
 import scipy.optimize as op
 
-import sys
-sys.path.append("investigations")
+#import sys
+#sys.path.append('..')
 import valWithFjF
 import plotWithFjF
 import plotWithSzF
 import plotWithMoF
 import plotWithKeF
+import plotRootsFigs
+import plotSymmGeo
 #import levPos
 
 
@@ -305,8 +307,8 @@ pl.ion # turns interactive mode in pylab on - prevents figures from vanishing in
 #plotWithSzF   = 0
 #plotWithMoF   = 0
 #plotWithKeF   = 0
-plotRootsFigs = 0
-plotSymmGeo   = 0
+#plotRootsFigs = 0
+#plotSymmGeo   = 0
 
 sensIplot = 0
 sensPropPlot = 0
@@ -752,92 +754,14 @@ if compareRoyerTemp == True:
 
 #plotWithMoF.plotWithMoF()
 
-plotWithKeF.plotWithKeF() 
+#plotWithKeF.plotWithKeF() 
 
-    
-if plotRootsFigs == True:
-    
-    Layers   = 15
-    Sections = 15
-    Slices   = 15
-    nForce   = 50
-    minForce = -0.01
-    maxForce =  0.015
-    
-    myCoil       = dd.loop1dir1
-    mySample     = dd.Cu
-    myAtmosphere = dd.Ar
-    
-    thePosVec, theForceVec, Jcomp, powerVec = emlcSim(myCoil, mySample, myAtmosphere, Layers, Sections, Slices, nForce, minForce, maxForce)
-    
-    sampleWeight = ((4.0/3.0)*np.pi*(dd.Cu.R**3.0))*dd.Cu.rho*9.81 # W = mg = V(rho)g
-    
-    # figure
-    fig = pl.figure()
-    ax = fig.add_subplot(111)
-    
-    pl.plot(thePosVec, theForceVec, 'k-')
-    pl.plot(thePosVec, sampleWeight*np.ones(np.size(thePosVec)), 'k--')
-    
-    pl.xlabel('Sample position along the z-axis (centerline of the coil) [m]')
-    pl.ylabel('Force [N]')
-    pl.legend(['Levitation force','Sample weight'], loc = 'lower right')
-    
-#    # for loop2dir1
-#    ax.annotate('coil loop 1', xy=(myCoil.z_i[0], -0.1), xytext=(myCoil.z_i[0], -0.08),
-#            arrowprops=dict(facecolor='black', shrink=0.08), fontsize = 16)            
-#    ax.annotate('coil loop 2', xy=(myCoil.z_i[1], -0.1), xytext=(myCoil.z_i[1], -0.08),
-#            arrowprops=dict(facecolor='black', shrink=0.08), fontsize = 16)
-#    ax.annotate('Stable levitation position', xy=(-0.0024, 0.046), xytext=(0.0, 0.07),
-#            arrowprops=dict(facecolor='black', shrink=0.08), fontsize = 16)
-            
-    # for loop1dir1
-    ax.annotate('coil loop 1', xy=(myCoil.z_i[0], -0.15), xytext=(myCoil.z_i[0], -0.1),
-            arrowprops=dict(facecolor='black', shrink=0.08), fontsize = 16)            
-#    ax.annotate('Stable levitation position', xy=(0.009, 0.046), xytext=(0.01, 0.07),
-#            arrowprops=dict(facecolor='black', shrink=0.08), fontsize = 16)            
-    
-    pl.show()
+plotRootsFigs.plotRootsFigs()
 
+#plotSymmGeo.plotSymmGeo()
+    
+    
 
-if plotSymmGeo == True:
-    
-    Layers   = 15
-    Sections = 15
-    Slices   = 15
-    nForce   = 50
-    minForce = -0.01
-    maxForce =  0.01
-    
-    myCoil       = dd.sz
-    mySample     = dd.Fe
-    myAtmosphere = dd.Ar
-    
-    thePosVec, theForceVec, Jcomp, powerVec = emlcSim(myCoil, mySample, myAtmosphere, Layers, Sections, Slices, nForce, minForce, maxForce)
-    
-    # figure
-    fig = pl.figure()
-    ax = fig.add_subplot(111)
-    
-    pl.plot(thePosVec, theForceVec, 'k-')
-    
-    pl.xlabel('Sample position along the z-axis (centerline of the coil) [m]')
-    pl.ylabel('Force [N]')
-    
-   # for loop1dir1
-    ax.annotate('coil \nloops \n1 & 2', xy=(myCoil.z_i[0], -0.039), xytext=(myCoil.z_i[0] + 0.002, -0.029),
-            arrowprops=dict(facecolor='black', shrink=0.08), fontsize = 16)   
-    ax.annotate('coil \nloops \n3 & 4', xy=(myCoil.z_i[2], -0.039), xytext=(myCoil.z_i[2] + 0.002, -0.029),
-            arrowprops=dict(facecolor='black', shrink=0.08), fontsize = 16) 
-    ax.annotate('coil \nloops \n5 & 6', xy=(myCoil.z_i[4], -0.039), xytext=(myCoil.z_i[4] + 0.002, -0.029),
-            arrowprops=dict(facecolor='black', shrink=0.08), fontsize = 16)   
-    ax.annotate('coil \nloops \n7 & 8', xy=(myCoil.z_i[6], -0.039), xytext=(myCoil.z_i[6] + 0.002, -0.029),
-            arrowprops=dict(facecolor='black', shrink=0.08), fontsize = 16)             
-           
-    pl.grid(True)
-    pl.show()
-    
-    meshIndependent(myCoil, mySample, myAtmosphere)
 
 
 if sensPropPlot == True:

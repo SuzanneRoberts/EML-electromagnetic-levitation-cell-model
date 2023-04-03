@@ -1,9 +1,9 @@
 import numpy as np
 import time
-import discSample as ds
-from samplePos import samplePos
-from energyBalance import sampleTemp
-import plotLitData as pld
+from model import discSample as ds
+from model.samplePos import samplePos
+from model.energyBalance import sampleTemp
+from model import plotLitData as pld
 
 
 # EMLC simmulation function
