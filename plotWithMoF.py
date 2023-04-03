@@ -1,3 +1,6 @@
+import sys
+sys.path.append('model')
+
 import defineDesign as dd
 import pylab as pl   
 from emlcSim import emlcSim
@@ -19,3 +22,6 @@ def plotWithMoF():
     
     pl.show()
     
+    
+# Function call to run investigation
+plotWithMoF()

@@ -200,7 +200,7 @@ def levSim(coil, sample, atmosphere, layers, sections, slices):
    
     return (posVec, forceVec, aSamplePos, F_lift_z, sampleWeight, powerVec, tempVec, T, simTime, aSamplePosGrad)
     
-
+    
 def meshIndependent(indCoil, indSample, indAtmosphere):
     # mesh independence study of the levitation position and sample temperature in this position
     #meshDensity = [10, 15, 20, 25, 30, 35]
@@ -261,7 +261,7 @@ def meshIndependent(indCoil, indSample, indAtmosphere):
     pl.ylabel('Absolute difference in simulation time \n relative to case with the most cells [%]', fontsize = 22) 
     
     pl.show()    
-
+    
 
 class testEMLC(unittest.TestCase):
     def testJsymmetry(self): # set function above to only compute on symmetry plane!

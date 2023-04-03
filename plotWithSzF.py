@@ -1,3 +1,6 @@
+import sys
+sys.path.append('model')
+
 import defineDesign as dd
 import pylab as pl   
 from emlcSim import emlcSim
@@ -35,3 +38,7 @@ def plotWithSzF():
     pl.legend(['I = 200','I = 250','I = 300'], loc = 'upper center')
     
     pl.show()
+    
+    
+# Function call to run investigation
+plotWithSzF()

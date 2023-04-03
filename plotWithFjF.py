@@ -1,5 +1,5 @@
-#import sys
-#sys.path.append('model')
+import sys
+sys.path.append('model')
 
 from model import defineDesign as dd
 import pylab as pl   
@@ -52,5 +52,5 @@ def plotWithFjF():
     pl.show()
     
     
-    
+# Function call to run investigation  
 plotWithFjF()

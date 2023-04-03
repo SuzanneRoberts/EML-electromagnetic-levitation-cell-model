@@ -1,3 +1,6 @@
+import sys
+sys.path.append('model')
+
 import defineDesign as dd
 import pylab as pl   
 from emlcSim import emlcSim
@@ -47,3 +50,7 @@ def valWithFjF():
     pl.figure()   
     
     pl.show()
+    
+    
+# Function call to run investigation  
+valWithFjF()

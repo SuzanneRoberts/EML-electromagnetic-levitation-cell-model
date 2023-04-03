@@ -1,3 +1,6 @@
+import sys
+sys.path.append('model')
+
 import defineDesign as dd
 import pylab as pl   
 from emlcSim import emlcSim
@@ -28,3 +31,7 @@ def plotWithKeF():
     pl.legend(['Fromm & Jehn model (current implementation), \n Force divided by 35','Kermanpur et al. model reported results','Kermanpur et al. reported data points'], loc='lower right', fontsize = 22)
     
     pl.show()
+    
+    
+# Function call to run the investigation
+plotWithKeF()

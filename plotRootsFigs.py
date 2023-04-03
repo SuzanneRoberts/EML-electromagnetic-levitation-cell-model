@@ -1,3 +1,6 @@
+import sys
+sys.path.append('model')
+
 import defineDesign as dd
 import pylab as pl   
 from emlcSim import emlcSim
@@ -46,4 +49,8 @@ def plotRootsFigs():
 #            arrowprops=dict(facecolor='black', shrink=0.08), fontsize = 16)            
     
     pl.show()
+    
+    
+# Function call to run investigation
+plotRootsFigs()
 

@@ -1,8 +1,10 @@
 import sys
-sys.path.append('~/EMLmodel/EML_elecmagnetic_levitation_cell_model')
-from EML_elecmagnetic_levitation_cell_model import defineDesign as dd
+sys.path.append('model')
+
+import defineDesign as dd
 import pylab as pl   
 from emlcSim import emlcSim
+from emlc import meshIndependent
 
 
 def plotSymmGeo():
@@ -43,3 +45,7 @@ def plotSymmGeo():
     pl.show()
     
     meshIndependent(myCoil, mySample, myAtmosphere)
+    
+    
+# Function call to run investigation
+plotSymmGeo()

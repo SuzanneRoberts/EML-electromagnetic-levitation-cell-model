@@ -5,6 +5,9 @@ Created on Fri Jan 29 07:52:12 2016
 @author: Suzanne
 """
 
+import sys
+sys.path.append('model')
+
 import numpy as np, pylab as pl
 
 def plotWithMoghimiCaseForce(modelPosVec, modelForceVec):
@@ -12,14 +15,14 @@ def plotWithMoghimiCaseForce(modelPosVec, modelForceVec):
     pl.plot(modelPosVec, modelForceVec, '-k', linewidth = 2)
     
     # Compare with Moghimi model
-    moghimiModel = np.loadtxt('MoghimiModel/MoghimiFig8.txt')
+    moghimiModel = np.loadtxt('model/MoghimiModel/MoghimiFig8.txt')
     moghimiZ     = moghimiModel[:,0]
     moghimiF     = moghimiModel[:,1]  
     
     pl.plot(moghimiZ, moghimiF, 'kd', markersize = 10)
     
     # Compare with Kermanpur model of Moghimi case
-    KermanpurModelMo = np.loadtxt('KermanpurModel/KermanpurFig6mo.txt')
+    KermanpurModelMo = np.loadtxt('model/KermanpurModel/KermanpurFig6mo.txt')
     KermanpurMoZ     = KermanpurModelMo[:,0]
     KermanpurMoF     = KermanpurModelMo[:,1]  
     
@@ -38,14 +41,14 @@ def plotWithKermanpurCaseForce(modelPosVec, modelForceVec):
     pl.plot(modelPosVec, modelForceVec, '-k', linewidth = 2)
     
     # Compare with Kermanpur model case
-    KermanpurModel = np.loadtxt('KermanpurModel/KermanpurFig8.txt')
+    KermanpurModel = np.loadtxt('model/KermanpurModel/KermanpurFig8.txt')
     KermanpurZ     = KermanpurModel[:,0]
     KermanpurF     = KermanpurModel[:,1]  
     
     pl.plot(KermanpurZ, KermanpurF, 'b*', markersize = 10)
     
     # Compare with Kermanpur model case data points
-    KermanpurModelpnts = np.loadtxt('KermanpurModel/KermanpurFig8pnts.txt')
+    KermanpurModelpnts = np.loadtxt('model/KermanpurModel/KermanpurFig8pnts.txt')
     KermanpurZpnts     = KermanpurModelpnts[:,0]
     KermanpurFpnts     = KermanpurModelpnts[:,1]  
     
@@ -180,9 +183,9 @@ def plotWithFrommJehnCaseForce0(modelPosVec10, modelForceVec10, modelPosVec12, m
     
 def plotWithElKaddahSzekelyCaseForce(modelPosVec200, modelForceVec200, modelPosVec250, modelForceVec250, modelPosVec300, modelForceVec300):
     # load El-Kaddah and Szekely model results from the text file
-    sz200 = np.loadtxt('SzekelyModel/szFig4force.txt')
-    sz250 = np.loadtxt('SzekelyModel/szFig5force.txt')
-    sz300 = np.loadtxt('SzekelyModel/szFig6force.txt')
+    sz200 = np.loadtxt('model/SzekelyModel/szFig4force.txt')
+    sz250 = np.loadtxt('model/SzekelyModel/szFig5force.txt')
+    sz300 = np.loadtxt('model/SzekelyModel/szFig6force.txt')
     
 
     pl.figure()
@@ -210,9 +213,9 @@ def plotWithElKaddahSzekelyCaseForce(modelPosVec200, modelForceVec200, modelPosV
     
 def plotWithElKaddahSzekelyCasePower(modelPosVec200, modelPowerVec200, modelPosVec250, modelPowerVec250, modelPosVec300, modelPowerVec300):
     # load El-Kaddah and Szekely model results from the text file
-    sz200 = np.loadtxt('SzekelyModel/szFig4power.txt')
-    sz250 = np.loadtxt('SzekelyModel/szFig5power.txt')
-    sz300 = np.loadtxt('SzekelyModel/szFig6power.txt')
+    sz200 = np.loadtxt('model/SzekelyModel/szFig4power.txt')
+    sz250 = np.loadtxt('model/SzekelyModel/szFig5power.txt')
+    sz300 = np.loadtxt('model/SzekelyModel/szFig6power.txt')
     
 
     pl.figure()
@@ -243,7 +246,7 @@ def plotWithRoyerOptTemp(iVec, tVec):
     pl.plot(iVec, tVec, '-k', linewidth = 2)
     
     # Compare with Moghimi model
-    royerOptExp  = np.loadtxt('RoyerTempExpData/royer_opt_exp.txt')
+    royerOptExp  = np.loadtxt('model/RoyerTempExpData/royer_opt_exp.txt')
     royerOptExpI = royerOptExp[:,0]
     royerOptExpT = royerOptExp[:,1]  
     
