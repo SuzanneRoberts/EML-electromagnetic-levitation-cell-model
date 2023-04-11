@@ -125,7 +125,7 @@ def plotDissertation(plotTuple, titleString, xString='', yString='', legendList=
         pl.ylabel(yString)
         pl.legend(legendList, loc=locString)
         pl.grid(True)  
-        pl.savefig('outputFigures/'+titleString+str(n)+'.pdf', bbox_inches='tight')
+        pl.savefig("outputFigures/'+titleString+str(n)+'.pdf", format="pdf", bbox_inches="tight")
     
     # np.savetxt('outputFigures/'+titleString+'.txt', plotTuple) # only works for 2D arrays... therefore rather pickle
     with open('outputFigures/'+titleString+'.pickle', 'wb') as f:

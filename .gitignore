@@ -1,3 +1,6 @@
+# Generated output figures - directory, anywhere
+outputFigures/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
