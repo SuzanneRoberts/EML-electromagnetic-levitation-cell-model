@@ -1,5 +1,6 @@
 # Generated output figures - directory, anywhere
 outputFigures/*
+!outputFigures/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
