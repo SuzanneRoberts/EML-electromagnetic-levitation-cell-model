@@ -13,7 +13,7 @@ def levPos():
     Sections = 15
     Slices   = 15
     
-    myCoil       = dd.sz2 # dd.loop2dir1
+    myCoil       = dd.sz # dd.loop2dir1
     mySample     = dd.Cu
     myAtmosphere = dd.Ar
 
