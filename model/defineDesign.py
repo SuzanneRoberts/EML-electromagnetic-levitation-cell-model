@@ -68,6 +68,11 @@ ring = coil( np.array([10.0]), np.array([0.6]), np.array([1.0]),
           1.,       # A (current in coil)
           0.226     # m (coil tube radius)
           )
+sr_1b = coil( np.array([10.0])*1E-3, np.array([0.0])*1E-3, np.array([1.0]), # mm*1e-3 = m
+          27E3,     # Hz (frequency of the coil current)
+          100.,       # A (current in coil)
+          3.0E-3     # m (coil tube radius)
+          )
 sz = coil( x_i, z_i, k_i, 
           450E3,    # Hz (frequency of the coil current)
           400.,#200.,     # A (current in coil)

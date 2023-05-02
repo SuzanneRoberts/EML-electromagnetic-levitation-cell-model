@@ -48,6 +48,11 @@ def designParameterSensitivity():
     print(myCoil4.f)
     tupOut6 = levSim(myCoil4, mySample4, myAtmosphere4, Layers, Sections, Slices)
     print(tupOut6[7])
+    
+    myCoil7 = dd.sr_1b
+    mySample7 = dd.Cu
+    myAtmosphere7 = dd.Ar
+    tupOut7 = levSim(myCoil7, mySample7, myAtmosphere7, Layers, Sections, Slices)
 
 # tube radius
 # size of the gap between the different current direction loops
@@ -89,6 +94,9 @@ def designParameterSensitivity():
     pl.plot(tupOut6[0], tupOut6[1], '--cx')
     pl.plot(tupOut6[2], tupOut6[3], 'cx')
     pl.plot(tupOut6[0], tupOut6[4]*np.ones(len(tupOut5[0])), 'm')
+    pl.plot(tupOut7[0], tupOut7[1], '--bx')
+    pl.plot(tupOut7[2], tupOut7[3], 'rx')
+    pl.plot(tupOut7[0], tupOut7[4]*np.ones(len(tupOut7[0])), 'k')
     pl.show()
     
     
