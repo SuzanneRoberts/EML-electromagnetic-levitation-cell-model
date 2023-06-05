@@ -28,65 +28,71 @@ def designParameterSensitivity():
 # Instantiating and plotting the different coil designs
 
     # Szekely paper coil design
-    coilSz      = dd.sz # dd.loop2dir1
-    tupOutSz    = levSim(coilSz, mySample, myAtmosphere, Layers, Sections, Slices)
-    pl.plot(tupOutSz[0], tupOutSz[1], '-bo')
-    pl.plot(tupOutSz[2], tupOutSz[3], 'rx')
-    pl.plot(tupOutSz[0], tupOutSz[4]*np.ones(len(tupOutSz[0])), 'k')
+    coil_sz      = dd.sz # dd.loop2dir1
+    tupOut_sz    = levSim(coil_sz, mySample, myAtmosphere, Layers, Sections, Slices)
+    pl.plot(tupOut_sz[0], tupOut_sz[1], '-bo')
+    pl.plot(tupOut_sz[2], tupOut_sz[3], 'rx')
+    pl.plot(tupOut_sz[0], tupOut_sz[4]*np.ones(len(tupOut_sz[0])), 'k')
     
 #    myCoil.I = 130
 #    dd.ro.Ivec = (myCoil.loops[:,4]*myCoil.I) + (np.abs(myCoil.loops[:,4]-1)*(-myCoil.I))
     
 #    tupOut = (posVec, forceVec, aSamplePos, F_lift_z, sampleWeight, powerVec, tempVec, T, simTime)
     
-    print('powerVec', tupOutSz[5])
-    print('tempVec', tupOutSz[6])
-    print('T', tupOutSz[7])
-    print('simTime', tupOutSz[8])
+    print('powerVec', tupOut_sz[5])
+    print('tempVec', tupOut_sz[6])
+    print('T', tupOut_sz[7])
+    print('simTime', tupOut_sz[8])
     
-
-    myCoil2 = dd.sz_doubleLoops
-    tupOut2 = levSim(myCoil2, mySample, myAtmosphere, Layers, Sections, Slices)
-    pl.plot(tupOut2[0], tupOut2[1], '-go')
-    pl.plot(tupOut2[2], tupOut2[3], 'cx')
-    pl.plot(tupOut2[0], tupOut2[4]*np.ones(len(tupOut2[0])), 'm')
+    # Double the number of loops for the Szekely paper coil design
+    coil_sz2x    = dd.sz_doubleLoops
+    tupOut_sz2x  = levSim(coil_sz2x, mySample, myAtmosphere, Layers, Sections, Slices)
+    pl.plot(tupOut_sz2x[0], tupOut_sz2x[1], '-go')
+    pl.plot(tupOut_sz2x[2], tupOut_sz2x[3], 'cx')
+    pl.plot(tupOut_sz2x[0], tupOut_sz2x[4]*np.ones(len(tupOut_sz2x[0])), 'm')
     
-    myCoil3 = dd.sz_doubleBottomLoops
-    tupOut3 = levSim(myCoil3, mySample, myAtmosphere, Layers, Sections, Slices)
-    pl.plot(tupOut3[0], tupOut3[1], '--go')
-    pl.plot(tupOut3[2], tupOut3[3], 'cx')
-    pl.plot(tupOut3[0], tupOut3[4]*np.ones(len(tupOut3[0])), 'm')
+    coil_sz8b4t   = dd.sz_doubleBottomLoops
+    tupOut_sz8b4t = levSim(coil_sz8b4t, mySample, myAtmosphere, Layers, Sections, Slices)
+    pl.plot(tupOut_sz8b4t[0], tupOut_sz8b4t[1], '--go')
+    pl.plot(tupOut_sz8b4t[2], tupOut_sz8b4t[3], 'cx')
+    pl.plot(tupOut_sz8b4t[0], tupOut_sz8b4t[4]*np.ones(len(tupOut_sz8b4t[0])), 'm')
     
-    myCoil4 = dd.sz_8b2t
-    print(myCoil4.I)
-    tupOut4 = levSim(myCoil4, mySample, myAtmosphere, Layers, Sections, Slices)
-    print(tupOut4[7])
-    pl.plot(tupOut4[0], tupOut4[1], '-bs')
-    pl.plot(tupOut4[2], tupOut4[3], 'cx')
-    pl.plot(tupOut4[0], tupOut4[4]*np.ones(len(tupOut4[0])), 'm')
+    coil_sz8b2t   = dd.sz_8b2t
+    print(coil_sz8b2t.x_i)
+    print(coil_sz8b2t.z_i)
+    print(coil_sz8b2t.I)
+    tupOut_sz8b2t = levSim(coil_sz8b2t, mySample, myAtmosphere, Layers, Sections, Slices)
+    print(tupOut_sz8b2t[7])
+    pl.plot(tupOut_sz8b2t[0], tupOut_sz8b2t[1], '-bs')
+    pl.plot(tupOut_sz8b2t[2], tupOut_sz8b2t[3], 'cx')
+    pl.plot(tupOut_sz8b2t[0], tupOut_sz8b2t[4]*np.ones(len(tupOut_sz8b2t[0])), 'm')
     
-    myCoil4.I = 200.0
-    print(myCoil4.I)
-    tupOut5 = levSim(myCoil4, mySample, myAtmosphere, Layers, Sections, Slices)
-    pl.plot(tupOut5[0], tupOut5[1], '--mo')
-    pl.plot(tupOut5[2], tupOut5[3], 'cx')
-    pl.plot(tupOut5[0], tupOut5[4]*np.ones(len(tupOut5[0])), 'm')
+    coil_sz8b2t.I = 200.0
+    dd.sz_8b2t.Ivec = (coil_sz8b2t.loops[:,4]*coil_sz8b2t.I) + (np.abs(coil_sz8b2t.loops[:,4]-1)*(-coil_sz8b2t.I))
+    print(coil_sz8b2t.I)
+    tupOut_sz8b2t_I = levSim(coil_sz8b2t, mySample, myAtmosphere, Layers, Sections, Slices)
+    pl.plot(tupOut_sz8b2t_I[0], tupOut_sz8b2t_I[1], '--mo')
+    pl.plot(tupOut_sz8b2t_I[2], tupOut_sz8b2t_I[3], 'cx')
+    pl.plot(tupOut_sz8b2t_I[0], tupOut_sz8b2t_I[4]*np.ones(len(tupOut_sz8b2t_I[0])), 'm')
     
-    myCoil4.I = 400.0
-    print(myCoil4.I)
-    myCoil4.f = 450.0
-    print(myCoil4.f)
-    tupOut6 = levSim(myCoil4, mySample, myAtmosphere, Layers, Sections, Slices)
-    print(tupOut6[7])
-    pl.plot(tupOut6[0], tupOut6[1], '--cx')
-    pl.plot(tupOut6[2], tupOut6[3], 'cx')
-    pl.plot(tupOut6[0], tupOut6[4]*np.ones(len(tupOut5[0])), 'm')
+    coil_sz8b2t.I = 400.0
+    dd.sz_8b2t.Ivec = (coil_sz8b2t.loops[:,4]*coil_sz8b2t.I) + (np.abs(coil_sz8b2t.loops[:,4]-1)*(-coil_sz8b2t.I))
+    print(coil_sz8b2t.I)
+    coil_sz8b2t.f = 450.0
+    print(coil_sz8b2t.f)
+    print(coil_sz8b2t.x_i)
+    print(coil_sz8b2t.z_i)
+    tupOut_sz8b2t_fI = levSim(coil_sz8b2t, mySample, myAtmosphere, Layers, Sections, Slices)
+    print(tupOut_sz8b2t_fI[7])
+    pl.plot(tupOut_sz8b2t_fI[0], tupOut_sz8b2t_fI[1], '--cx')
+    pl.plot(tupOut_sz8b2t_fI[2], tupOut_sz8b2t_fI[3], 'cx')
+    pl.plot(tupOut_sz8b2t_fI[0], tupOut_sz8b2t_fI[4]*np.ones(len(tupOut_sz8b2t_fI[0])), 'm')
     
-    myCoil7 = dd.sr_1b
-    tupOut7 = levSim(myCoil7, mySample, myAtmosphere, Layers, Sections, Slices)
-    pl.plot(tupOut7[0], tupOut7[1], '--bx')
-    pl.plot(tupOut7[2], tupOut7[3], 'rx')
-    pl.plot(tupOut7[0], tupOut7[4]*np.ones(len(tupOut7[0])), 'k')
+    coil_sr1b = dd.sr_1b
+    tupOut_sr1b = levSim(coil_sr1b, mySample, myAtmosphere, Layers, Sections, Slices)
+    pl.plot(tupOut_sr1b[0], tupOut_sr1b[1], '--bx')
+    pl.plot(tupOut_sr1b[2], tupOut_sr1b[3], 'rx')
+    pl.plot(tupOut_sr1b[0], tupOut_sr1b[4]*np.ones(len(tupOut_sr1b[0])), 'k')
 
 # tube radius
 # size of the gap between the different current direction loops
