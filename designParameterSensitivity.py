@@ -44,12 +44,20 @@ def designParameterSensitivity():
     print('T', tupOut_sz[7])
     print('simTime', tupOut_sz[8])
     
+    
     # Double the number of loops for the Szekely paper coil design
     coil_sz2x    = dd.sz_doubleLoops
     tupOut_sz2x  = levSim(coil_sz2x, mySample, myAtmosphere, Layers, Sections, Slices)
     pl.plot(tupOut_sz2x[0], tupOut_sz2x[1], '-go')
     pl.plot(tupOut_sz2x[2], tupOut_sz2x[3], 'cx')
     pl.plot(tupOut_sz2x[0], tupOut_sz2x[4]*np.ones(len(tupOut_sz2x[0])), 'm')
+
+    # Increasing the number of coil loops
+    myCoil2 = dd.sz_doubleLoops
+    tupOut2 = levSim(myCoil2, mySample, myAtmosphere, Layers, Sections, Slices)
+    pl.plot(tupOut2[0], tupOut2[1], '-go')
+    pl.plot(tupOut2[2], tupOut2[3], 'cx')
+    pl.plot(tupOut2[0], tupOut2[4]*np.ones(len(tupOut2[0])), 'm')
     
     coil_sz8b4t   = dd.sz_doubleBottomLoops
     tupOut_sz8b4t = levSim(coil_sz8b4t, mySample, myAtmosphere, Layers, Sections, Slices)
